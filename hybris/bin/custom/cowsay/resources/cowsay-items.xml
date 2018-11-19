@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
+    <itemtypes>
+        <itemtype code="CowFace" generate="true" autocreate="true">
+            <deployment table="cowface" typecode="20000"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers unique="true" optional="false" initial="true"/>
+                </attribute>
+                <attribute qualifier="eyes" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers optional="false"/>
+                    <defaultvalue>""</defaultvalue>
+                </attribute>
+                <attribute qualifier="tongue" type="java.lang.String">
+                    <persistence type="property"/>
+                    <modifiers optional="false"/>
+                    <defaultvalue>""</defaultvalue>
+                </attribute>
+                <attribute qualifier="think" type="java.lang.Boolean">
+                    <persistence type="property"/>
+                    <modifiers optional="false"/>
+                    <defaultvalue>Boolean.FALSE</defaultvalue>
+                </attribute>
+            </attributes>
+            <indexes>
+                <index name="unique_idx" unique="true">
+                    <key attribute="code"/>
+                </index>
+            </indexes>
+        </itemtype>
+    </itemtypes>
+</items>
