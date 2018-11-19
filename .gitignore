@@ -59,7 +59,9 @@ base.properties
 **/web/addontestsrc
 *_bof.jar
 
+
 hybris/bin/custom/demo
+hybris/bin/custom/cowsay/lib
 
 libs/
 

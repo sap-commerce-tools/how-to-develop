@@ -30,7 +30,7 @@ task downloadHotSwapAgent(type: Copy) {
     into file("hybris/config")
 }
 
-
+//to avoid checking in the generated module, create it on demand:
 task disableLocalExtensions {
     doLast {
         Files.move(file("hybris/config/localextensions.xml").toPath(), file("hybris/config/localextensions.xml.off").toPath())
@@ -54,4 +54,10 @@ task bootstrap(dependsOn: ["bootstrapPlatform", "setupStorefront", "downloadHotS
             Files.move(file("hybris/config/localextensions.xml.off").toPath(), file("hybris/config/localextensions.xml").toPath())
         }
     }
+}
+
+task unitTests(type: HybrisAntTask) {
+    args("unittests")
+    antProperty("testclasses.extensions", "cowsay")
+    antProperty("testclasses.suppress.junit.tenant", "true")
 }
