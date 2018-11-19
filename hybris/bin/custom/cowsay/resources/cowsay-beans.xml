@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
+
+    <bean class="com.cow.data.CowParams" >
+        <property name="eyes" type="java.lang.String" equals="true"/>
+        <property name="tongue" type="java.lang.String" equals="true"/>
+        <property name="think" type="boolean" equals="true"/>
+    </bean>
+</beans>
