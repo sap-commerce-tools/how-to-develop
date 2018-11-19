@@ -19,5 +19,7 @@
         <extension name="pcmbackoffice"/>
         <extension name="solrserver"/>
 
+        <extension name="cowsay" />
+
     </extensions>
 </hybrisconfig>
