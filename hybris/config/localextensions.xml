@@ -20,6 +20,7 @@
         <extension name="solrserver"/>
 
         <extension name="cowsay" />
+        <extension name="cowsaytests"/>
 
     </extensions>
 </hybrisconfig>

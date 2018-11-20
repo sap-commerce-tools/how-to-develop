@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="cowFaceDao" class="com.cow.dao.impl.DefaultCowFaceDao" />
-
-    <bean id="cowService" class="com.cow.service.impl.DefaultCowSay" />
+    <bean id="junitCowDataSetup" class="com.cow.tests.setup.CowTestDataSetup" parent="abstractEventListener" >
+        <property name="importService" ref="importService" />
+    </bean>
 </beans>

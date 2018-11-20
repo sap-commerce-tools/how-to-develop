@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.*;
 @UnitTest
 public class DefaultCowSayTest {
 
-    CowSay cowSay;
+    private CowSay cowSay;
 
     @Before
     public void setUp() throws Exception {
@@ -49,6 +49,26 @@ public class DefaultCowSayTest {
                 "         \\  (@@)\\_______\n" +
                 "            (__)\\       )\\/\\\n" +
                 "             U  ||----w |\n" +
+                "                ||     ||\n"
+        );
+    }
+
+    @Test
+    public void think_with_other() {
+        CowParams params = new CowParams();
+        params.setThink(true);
+        params.setEyes("..");
+
+
+        String result = cowSay.say(params, "test");
+        assertThat(result).isEqualTo(
+                " ______\n" +
+                "( test )\n" +
+                " ------\n" +
+                "        o   ^__^\n" +
+                "         o  (..)\\_______\n" +
+                "            (__)\\       )\\/\\\n" +
+                "                ||----w |\n" +
                 "                ||     ||\n"
         );
     }

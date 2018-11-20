@@ -58,6 +58,13 @@ task bootstrap(dependsOn: ["bootstrapPlatform", "setupStorefront", "downloadHotS
 
 task unitTests(type: HybrisAntTask) {
     args("unittests")
-    antProperty("testclasses.extensions", "cowsay")
+    antProperty("testclasses.extensions", "cowsaytests")
     antProperty("testclasses.suppress.junit.tenant", "true")
+}
+
+//make sure the junit tenant is properly initialized before running the integration tests
+//ant yunitinit -Dde.hybris.platform.ant.production.skip.build=true
+task integrationtests(type: HybrisAntTask) {
+    args("integrationtests")
+    antProperty("testclasses.extensions", "cowsaytests")
 }
