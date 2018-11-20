@@ -22,5 +22,7 @@
         <extension name="cowsay" />
         <extension name="cowsaytests"/>
 
+        <extension name="cowaddon" />
+
     </extensions>
 </hybrisconfig>

@@ -62,6 +62,7 @@ base.properties
 
 hybris/bin/custom/demo
 hybris/bin/custom/cowsay/lib
+hybris/bin/custom/cowaddon/project.properties
 
 libs/
 

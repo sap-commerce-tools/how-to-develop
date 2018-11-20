@@ -46,14 +46,23 @@ task setupStorefront(type: HybrisAntTask, dependsOn: ["disableLocalExtensions"])
     antProperty("input.package", "com.demo")
 }
 setupStorefront.mustRunAfter "bootstrapPlatform"
-task bootstrap(dependsOn: ["bootstrapPlatform", "setupStorefront", "downloadHotSwapAgent"]) {
-    group "Project"
-    description "Bootstrap this project"
+task enableLocalExtensions {
     doLast {
         if (file("hybris/config/localextensions.xml.off").exists()) {
             Files.move(file("hybris/config/localextensions.xml.off").toPath(), file("hybris/config/localextensions.xml").toPath())
         }
     }
+}
+task installCowAddon(type: HybrisAntTask, dependsOn: ["enableLocalExtensions"]) {
+    args("addoninstall")
+    antProperty("addonnames", "cowaddon")
+    antProperty("addonStorefront.yacceleratorstorefront", "demostorefront")
+}
+
+installCowAddon.mustRunAfter setupStorefront
+task bootstrap(dependsOn: ["bootstrapPlatform", "setupStorefront", "installCowAddon"]) {
+    group "Project"
+    description "Bootstrap this project"
 }
 
 task unitTests(type: HybrisAntTask) {
@@ -67,4 +76,10 @@ task unitTests(type: HybrisAntTask) {
 task integrationtests(type: HybrisAntTask) {
     args("integrationtests")
     antProperty("testclasses.extensions", "cowsaytests")
+}
+
+task storefronttests(type: HybrisAntTask) {
+    args("alltests")
+    antProperty("testclasses.web", "true")
+    antProperty("testclasses.extensions", "demostorefront")
 }

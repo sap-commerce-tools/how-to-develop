@@ -1,0 +1,15 @@
+$contentCatalog=electronicsContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+$jarResourceCms=jar:com.cow.addon.constants.CowaddonConstants&/cowaddon/import/cockpit/cmscockpit
+
+
+INSERT_UPDATE CowFace;code[unique=true];eyes;tongue;
+;hybris;"YY";"U ";
+
+INSERT_UPDATE CowComponent;$contentCV[unique=true];uid[unique=true];cowFace(code);text[lang='en']
+;;cow-component;hybris;"Hey there!";
+
+#directly import the relation -> fast, idempotent
+INSERT_UPDATE ElementsForSlot;source(uid,$contentCV)[unique=true];target(uid,$contentCV)[unique=true];
+;Section3Slot-Homepage;cow-component
+

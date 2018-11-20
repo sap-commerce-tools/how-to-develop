@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<extensioninfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extensioninfo.xsd">
+
+	<extension abstractclassprefix="Generated" classprefix="Cowaddon" description="cowaddon extension" managername="CowaddonManager" managersuperclass="de.hybris.platform.jalo.extension.Extension" name="cowaddon">
+
+		<requires-extension name="addonsupport"/>
+
+		<requires-extension name="cowsay"/>
+
+		<coremodule generated="true" manager="de.hybris.platform.jalo.extension.GenericManager" packageroot="com.cow.addon"/>
+
+		<meta key="classpathgen" value="false"/>
+
+	</extension>
+
+</extensioninfo>

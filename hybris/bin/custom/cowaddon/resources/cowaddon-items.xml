@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
+
+    <itemtypes>
+        <itemtype code="CowComponent" extends="SimpleCMSComponent" autocreate="true" generate="true" abstract="false"
+                  jaloclass="com.cow.addon.jalo.CowComponent" >
+            <attributes>
+                <attribute qualifier="cowFace" type="CowFace">
+                    <persistence type="property" />
+                </attribute>
+                <attribute qualifier="text" type="localized:java.lang.String" >
+                    <persistence type="property">
+                        <columntype>
+                            <value>HYBRIS.LONG_STRING</value>
+                        </columntype>
+                    </persistence>
+                </attribute>
+            </attributes>
+        </itemtype>
+    </itemtypes>
+</items>

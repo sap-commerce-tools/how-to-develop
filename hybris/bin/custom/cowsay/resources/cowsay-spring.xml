@@ -8,4 +8,18 @@
     <bean id="cowFaceDao" class="com.cow.dao.impl.DefaultCowFaceDao" />
 
     <bean id="cowService" class="com.cow.service.impl.DefaultCowSay" />
+
+    <bean id="faceToParamsConverter" parent="abstractPopulatingConverter">
+        <property name="targetClass" value="com.cow.data.CowParams" />
+        <property name="populators" >
+            <list>
+                <bean class="com.cow.facade.populators.FaceToParamsPopulator" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="cowFacade" class="com.cow.facade.impl.DefaultCowFacade">
+        <constructor-arg ref="cowService" />
+        <constructor-arg ref="faceToParamsConverter" />
+    </bean>
 </beans>

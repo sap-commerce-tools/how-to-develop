@@ -3,7 +3,9 @@ package com.cow.service;
 
 import com.cow.data.CowParams;
 
+import javax.annotation.Nonnull;
+
 public interface CowSay {
-    String say(String message);
-    String say(CowParams cow, String message);
+    String say(@Nonnull String message);
+    String say(@Nonnull CowParams cow, @Nonnull String message);
 }
