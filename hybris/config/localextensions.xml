@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hybrisconfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="resources/schemas/extensions.xsd">
+    <extensions>
+
+        <path dir="${HYBRIS_BIN_DIR}"/>
+
+        <extension name="demofulfilmentprocess"/>
+        <extension name="democore"/>
+        <extension name="demofacades"/>
+        <extension name="demostorefront"/>
+        <extension name="demoinitialdata"/>
+        <extension name="demotest"/>
+
+        <extension name="electronicsstore"/>
+
+        <extension name="platformbackoffice"/>
+        <extension name="cmsbackoffice"/>
+        <extension name="pcmbackoffice"/>
+        <extension name="solrserver"/>
+
+    </extensions>
+</hybrisconfig>

@@ -1,0 +1,57 @@
+plugins {
+  id "mpern.sap.commerce.build" version "1.2.0"
+}
+import mpern.sap.commerce.build.tasks.HybrisAntTask
+import java.nio.file.Files
+
+hybris {
+    version = '6.7.0.8'
+}
+
+repositories {
+    jcenter()
+    flatDir {
+        dirs "${rootProject.projectDir}/libs"
+    }
+}
+
+configurations {
+    hotswapagent
+}
+
+dependencies {
+    hotswapagent('org.hotswapagent:hotswap-agent:1.3.0') {
+        transitive = false
+    }
+}
+
+task downloadHotSwapAgent(type: Copy) {
+    from configurations.hotswapagent
+    into file("hybris/config")
+}
+
+
+task disableLocalExtensions {
+    doLast {
+        Files.move(file("hybris/config/localextensions.xml").toPath(), file("hybris/config/localextensions.xml.off").toPath())
+    }
+}
+task setupStorefront(type: HybrisAntTask, dependsOn: ["disableLocalExtensions"]) {
+    onlyIf {
+        !file("hybris/bin/custom/demo").exists()
+    }
+    args("modulegen")
+    antProperty("input.module", "accelerator")
+    antProperty("input.name", "demo")
+    antProperty("input.package", "com.demo")
+}
+setupStorefront.mustRunAfter "bootstrapPlatform"
+task bootstrap(dependsOn: ["bootstrapPlatform", "setupStorefront", "downloadHotSwapAgent"]) {
+    group "Project"
+    description "Bootstrap this project"
+    doLast {
+        if (file("hybris/config/localextensions.xml.off").exists()) {
+            Files.move(file("hybris/config/localextensions.xml.off").toPath(), file("hybris/config/localextensions.xml").toPath())
+        }
+    }
+}

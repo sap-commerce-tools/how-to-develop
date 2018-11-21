@@ -1,0 +1,70 @@
+{
+	"authentication": {
+		"class": "solr.BasicAuthPlugin",
+		"blockUnknown": true,
+		"credentials": {
+			"solrclient": "2NtmibBImstZ5S07bQ2TdRkNdNEsXkv/JCkp8YeiwIU= riWS4qMkR+caBGL1uuUToIIYEz/bxDN5LycQ44BprNs=",
+			"solrindexingclient": "Op+mSXqBgJlMEixH25vTnCgC8KayBgKNGRP3i3bLr/4= uFXwaAKtYXjwy32QfkKL/ASA3X3Vlq1XW4DykYexNTw=",
+			"solrserver": "E7h3Zq+hgRyA+1Nx28jL+AArUlf6JbJRR+6cOAqfQHA= 481lwUYp4qmY6Li+oakSVnXwYoXy0mWYN/1sWE5YNdc=",
+			"solradmin": "Hbs0wnLz1WErQHXQUzm5AHrvc2ZkWPl5iHXPeJOgp8I= Lz4KoANtWA/UqKy8yAVZmapQ3UJPlg0MjlBZEJT/kak="
+		}
+	},
+	"authorization": {
+		"class": "solr.RuleBasedAuthorizationPlugin",
+		"permissions": [
+			{
+				"name": "read",
+				"role": "client-role"
+			},
+			{
+				"name": "core-admin-read",
+				"role": "client-role"
+			},
+			{
+				"name": "collection-admin-read",
+				"role": "client-role"
+			},
+			{
+				"name": "core-admin-edit",
+				"role": "admin-role"
+			},
+			{
+				"name": "collection-admin-edit",
+				"role": "admin-role"
+			},
+			{
+				"name": "schema-read",
+				"role": "admin-role"
+			},
+			{
+				"name": "schema-edit",
+				"role": "admin-role"
+			},
+			{
+				"name": "update",
+				"role": "admin-role"
+			},
+			{
+				"name": "all",
+				"role": "admin-role"
+			}
+		],
+		"user-role": {
+			"solrclient": [
+				"client-role"
+			],
+			"solrindexingclient": [
+				"client-role",
+				"admin-role"
+			],
+			"solrserver": [
+				"client-role",
+				"admin-role"
+			],
+			"solradmin": [
+				"client-role",
+				"admin-role"
+			]
+		}
+	}
+}
