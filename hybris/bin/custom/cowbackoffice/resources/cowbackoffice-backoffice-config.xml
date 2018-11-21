@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<config xmlns="http://www.hybris.com/cockpit/config" xmlns:y="http://www.hybris.com/cockpit/config/hybris">
+
+
+    <context merge-by="module" parent="auto" component="explorer-tree">
+        <explorer-tree:explorer-tree xmlns:explorer-tree="http://www.hybris.com/cockpitng/config/explorertree">
+            <explorer-tree:navigation-node id="cow-node" merge-mode="append">
+                <explorer-tree:type-node code="CowFace" id="type_tree_cowface" />
+            </explorer-tree:navigation-node>
+        </explorer-tree:explorer-tree>
+    </context>
+
+    <context type="CowFace" component="editorareaactions">
+        <y:actions>
+            <y:group qualifier="common" show-group-header="false">
+                <y:label>actiongroup.common</y:label>
+                <y:action action-id="com.hybris.cockpitng.action.delete" property="currentObject"/>
+                <y:action action-id="com.cow.backoffice.cowpreview" property="currentObject"/>
+            </y:group>
+        </y:actions>
+    </context>
+
+</config>

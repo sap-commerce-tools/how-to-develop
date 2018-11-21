@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+                   id="com.cow.backoffice.widgets.cowsaywidget">
+    <name>Cowsay Widget</name>
+    <author>ES</author>
+    <version>1.0</version>
+    <view src="cowsaywidget.zul"/>
+    <keywords>
+        <keyword>cowbackoffice</keyword>
+    </keywords>
+    <!--groovy file must be next to the definition.xml-->
+    <controller class="CowController.groovy"/>
+</widget-definition>

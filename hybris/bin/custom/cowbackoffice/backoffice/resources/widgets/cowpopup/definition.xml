@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+                   id="com.cow.backoffice.widgets.cowpopup">
+    <name>Cowsay Popup</name>
+    <author>ES</author>
+    <version>1.0</version>
+    <view src="cowpopup.zul"/>
+    <keywords>
+        <keyword>cowbackoffice</keyword>
+    </keywords>
+    <sockets>
+        <input id="previewContext" type="com.cow.model.CowFaceModel"/>
+    </sockets>
+    <!--groovy file must be next to the definition.xml-->
+    <controller class="CowPopupController.groovy"/>
+</widget-definition>

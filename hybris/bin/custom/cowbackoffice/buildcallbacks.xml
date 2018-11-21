@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project name="cowbackoffice_buildcallbacks">
+    <property name="cowbackofficeWebFragmentSrc" value="${ext.cowbackoffice.path}/resources/web-fragment.xml"/>
+    <property name="cowbackofficeWebFragmentDestJar"
+              value="${ext.backoffice.path}/web/webroot/WEB-INF/lib/webfragmentExt_cowbackoffice.jar"/>
+
+
+    <macrodef name="cowbackoffice_after_clean">
+        <sequential>
+            <cowbackoffice_remove_web_fragment/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="cowbackoffice_after_build">
+        <sequential>
+            <cowbackoffice_remove_web_fragment/>
+            <cowbackoffice_create_web_fragment/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="cowbackoffice_remove_web_fragment">
+        <sequential>
+            <if>
+                <available file="${cowbackofficeWebFragmentDestJar}"/>
+                <then>
+                    <delete file="${cowbackofficeWebFragmentDestJar}"/>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="cowbackoffice_create_web_fragment">
+        <sequential>
+            <if>
+                <available file="${cowbackofficeWebFragmentSrc}"/>
+                <then>
+                    <sequential>
+                        <jar destfile="${cowbackofficeWebFragmentDestJar}">
+                            <metainf file="${cowbackofficeWebFragmentSrc}"/>
+                        </jar>
+                    </sequential>
+                </then>
+            </if>
+        </sequential>
+    </macrodef>
+
+    <patternset id="cowbackoffice.localization.pattern">
+        <!-- core and hmc  -->
+        <include name="**/*locales*_en.properties"/>
+        <exclude name="**/hmc/web/webroot/WEB-INF/classes/**/*"/>
+        <exclude name="**/unittest/**/*"/>
+
+        <!-- cockpit (ng) -->
+        <include name="**/i3-label_en.properties"/>
+        <include name="**/labels_en.properties"/>
+
+        <!-- messages -->
+        <include name="**/*messages_en.properties"/>
+        <include name="**/*messages.properties"/>
+
+        <!-- frontend properties files in WEB-INF/messages folder -->
+        <include name="**/WEB-INF/messages/*_en.properties"/>
+
+        <!-- csv and impex -->
+        <include name="**/*_en.csv"/>
+        <include name="**/*_en.impex"/>
+
+        <include name="**/lang-en.properties"/>
+
+        <!-- email localizations from yacceleratorcore -->
+        <include name="resources/**/messages/*_en.properties"/>
+
+        <!-- include validation messages -->
+        <include name="resources/**/ValidationMessages.properties"/>
+    </patternset>
+
+    <macrodef name="cowbackoffice_before_build">
+        <sequential>
+            <register_sass_extension extensionname="cowbackoffice"/>
+            <register_sass_extension extensionname="cowbackoffice" resources="resources" destination=""/>
+        </sequential>
+    </macrodef>
+
+</project>

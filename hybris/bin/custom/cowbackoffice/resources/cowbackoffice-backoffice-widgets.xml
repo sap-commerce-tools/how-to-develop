@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widgets.xsd">
+
+    <widget-extension widgetId="leftSlotContainer">
+        <remove widgetId="savedQueries" />
+        <widget id="cowSayWidget"
+                widgetDefinitionId="com.cow.backoffice.widgets.cowsaywidget"
+                slotId="bottomSlot" template="false" />
+    </widget-extension>
+
+    <widget-extension widgetId="backofficePerspectiveChooser">
+        <widget id="cowPreview" widgetDefinitionId="com.cow.backoffice.widgets.cowpopup" slotId="cockpitWidgetChildrenInvisible" template="true">
+            <instance-settings socketEventRoutingMode="LAST_USED">
+                <create onInit="false" reuseExisting="false">
+                    <all-incoming-events/>
+                </create>
+                <select onInit="false">
+                    <all-incoming-events/>
+                </select>
+            </instance-settings>
+            <setting key="_width" type="String">300px</setting>
+            <setting key="_height" type="String">auto</setting>
+        </widget>
+    </widget-extension>
+    
+    <widget-connection sourceWidgetId="STUB_com.cow.backoffice.cowpreview" outputId="cowFace"
+                       targetWidgetId="cowPreview"
+                       inputId="previewContext" />
+</widgets>

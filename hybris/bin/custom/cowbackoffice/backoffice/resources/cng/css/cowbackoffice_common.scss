@@ -1,0 +1,18 @@
+//undocumented feature: use <extensionname>_common.scss|css to inject a global css into the backoffice :)
+
+.yw-systemBarContainer {
+  background-color: darkred;
+}
+
+.cow-container {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: $background-color;
+  color: $foreground-color;
+  pre {
+    background: $highlight-color;
+    padding: 0.3rem;
+  }
+}

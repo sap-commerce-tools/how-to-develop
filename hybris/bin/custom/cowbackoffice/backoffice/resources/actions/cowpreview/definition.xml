@@ -1,0 +1,15 @@
+<action-definition id="com.cow.backoffice.cowpreview" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/action-definition.xsd">
+
+    <name>CowPreview</name>
+    <author>ES</author>
+    <version>0.1</version>
+
+    <actionClassName>com.cow.backoffice.actions.CowPreviewAction</actionClassName>
+
+    <iconUri>icons/cow.png</iconUri>
+
+    <sockets>
+        <output id="cowFace" type="com.cow.model.CowFaceModel" />
+    </sockets>
+</action-definition>
