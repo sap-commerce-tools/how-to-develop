@@ -3,6 +3,10 @@
 This repo showcases tips & tricks regarding efficient development with SAP
 Commerce
 
+## Prerequisites
+
+[DCEVM for JDK 8](https://github.com/dcevm/dcevm) is installed as described [here](https://help.hybris.com/6.7.0/hcd/0b40907d5db14955bf4074b4b25e6998.html)
+
 ## Setup
 
 1. clone the repository
