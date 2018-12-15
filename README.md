@@ -15,4 +15,4 @@ Commerce
 1. `git checkout 1-minimal`
 1. `./gradlew bootstrap`
 
-Now you can follow the trail...
+Now you can [follow the trail...](https://github.com/sap-commerce-tools/how-to-develop/wiki)
