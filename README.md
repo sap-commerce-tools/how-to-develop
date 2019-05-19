@@ -1,4 +1,5 @@
 # How to efficiently develop SAP Commerce
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W7VS24)
 
 This repo showcases tips & tricks regarding efficient development with SAP
 Commerce
